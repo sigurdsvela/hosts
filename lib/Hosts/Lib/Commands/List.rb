@@ -6,14 +6,27 @@ module Hosts::Lib::Commands
   List = SubCommand.new(
     'list', # Name of the sub command
     'List all host entries',
-    options_obj
+    options_obj,
+    false
   ) { |options, args|
-    host_file = Hosts.host_file
-    host_entries = host_file.get_all_entries
-    host_entries.each do |dest, hostnames|
+    hosts_file = HostsFile.new Hosts.hosts_file
+    hosts_entries = hosts_file.get_all_entries
+    
+    longest_dest_name = 0
+
+    hosts_entries.each do |dest, hostnames|
+      if (dest.length > longest_dest_name)
+        longest_dest_name = dest.length
+      end
+    end
+
+    hosts_entries.each do |dest, hostnames|
       hostname_f = hostnames * ", "
-      puts "#{dest} => #{hostname_f}"
-    }
+
+      print "%-#{longest_dest_name}.#{longest_dest_name}s" % dest
+      print " "
+      puts "=> #{hostname_f}"
+    end
   }
   @List
 end
