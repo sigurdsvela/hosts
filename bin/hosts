@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# Ad lib to include path
+$:.unshift File.dirname(File.expand_path(File.dirname(__FILE__))) + '/lib'
+
+# Require sub commands
+require 'Hosts/Lib/autoload.rb'
+
+Hosts.main
