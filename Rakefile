@@ -7,7 +7,7 @@ end
 
 task :gembuild do
   print "Building..."
-  `gem build hosts.gemspec`
+  `gem build hosts-cli.gemspec`
   print "done\n"
 end
 
@@ -25,7 +25,7 @@ task :geminstall do
     end
   }
   install = Thread.new {
-    `sudo gem install hosts-*`
+    `sudo gem install hosts-cli-*`
   }
   install.join
   loading.exit
