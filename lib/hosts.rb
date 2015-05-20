@@ -5,11 +5,11 @@ module Hosts
 
   def self.main
     @sub_commands = {}
+    @sub_commands['add']  = Hosts::Lib::Commands::Add
     @sub_commands['help'] = Hosts::Lib::Commands::Help
-    @sub_commands['new']  = Hosts::Lib::Commands::New
-    @sub_commands['config']  = Hosts::Lib::Commands::Config
+    @sub_commands['list']  = Hosts::Lib::Commands::List
+    @sub_commands['rm']  = Hosts::Lib::Commands::Rm
     @sub_commands['version']  = Hosts::Lib::Commands::Version
-    @sub_commands['template']  = Hosts::Lib::Commands::Template
 
     if ARGV[0] == nil
       Hosts::Lib::Commands::Help.run([]);

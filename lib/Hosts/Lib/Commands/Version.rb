@@ -1,6 +1,6 @@
-include Boot::Lib::Core
+include Hosts::Lib::Core
 
-module Boot::Lib::Commands
+module Hosts::Lib::Commands
   options_obj = Slop::Options.new
   
   Version = SubCommand.new(
@@ -9,7 +9,7 @@ module Boot::Lib::Commands
     options_obj,
     false
   ) { |options, args|
-    puts Boot::VERSION
+    puts Hosts::VERSION
   }
   @Version
 end
