@@ -147,12 +147,12 @@ module Hosts::Lib::Core
         end
       end
 
+      File.open(@hosts_file_path, "w+").write(new_hosts_file_content)
+
       puts
       puts "new content of hosts file:"
       puts new_hosts_file_content
       puts
-
-      File.open(@hosts_file_path, "w+").write(new_hosts_file_content)
     end
   end
 

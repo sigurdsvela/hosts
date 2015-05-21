@@ -19,10 +19,14 @@ module Hosts::Lib::Commands
 
     hosts_file.add_entry(args[0], args[1])
 
-    puts "Added entry: #{args[0]} => #{args[1]}"
 
     # Write changes to hosts file
-    hosts_file.flush
+    begin
+      hosts_file.flush
+      puts "Added entry: #{args[0]} => #{args[1]}"
+    rescue Errno::EACCES
+      puts "Permission error: 'hosts add' requires 'sudo'"
+    end
   }
   @Add
 end

@@ -28,7 +28,11 @@ module Hosts::Lib::Commands
     end
 
     # Write changes to hosts file
-    hosts_file.flush()
+    begin
+      hosts_file.flush()
+    rescue Errno::EACCES
+      puts "Permission error: 'hosts rm' requires 'sudo'"
+    end
   }
   @Rm
 end
