@@ -13,6 +13,7 @@ end
 
 module Hosts::Lib::Commands
   autoload :Add, File.dirname(__FILE__) + "/Commands/Add.rb"
+  autoload :Flush, File.dirname(__FILE__) + "/Commands/Flush.rb"
   autoload :Rm, File.dirname(__FILE__) + "/Commands/Rm.rb"
   autoload :List, File.dirname(__FILE__) + "/Commands/List.rb"
   autoload :Version, File.dirname(__FILE__) + "/Commands/Version.rb"
