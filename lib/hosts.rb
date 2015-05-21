@@ -6,6 +6,7 @@ module Hosts
   def self.main
     @sub_commands = {}
     @sub_commands['add']  = Hosts::Lib::Commands::Add
+    @sub_commands['flush']  = Hosts::Lib::Commands::Flush
     @sub_commands['help'] = Hosts::Lib::Commands::Help
     @sub_commands['list']  = Hosts::Lib::Commands::List
     @sub_commands['rm']  = Hosts::Lib::Commands::Rm
