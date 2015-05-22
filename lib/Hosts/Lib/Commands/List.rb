@@ -25,7 +25,7 @@ module Hosts::Lib::Commands
 
       print "%-#{longest_dest_name}.#{longest_dest_name}s" % dest
       print " "
-      puts "=> #{hostname_f}"
+      puts "<= #{hostname_f}"
     end
   }
   @List
