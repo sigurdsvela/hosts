@@ -18,7 +18,6 @@ module Hosts::Lib::Core
     def run(args)
       begin
         # If no option spesified, assume --help
-        # The underscore is a hack, see rescue block
         if (assume_help)
           fail Slop::UnknownOption.new "Unknown option --help", "--help" if (args.length == 0)
         end
@@ -26,8 +25,6 @@ module Hosts::Lib::Core
         @options.parse(args); # Dryrun to check for argument errors
         @block.call(@options, args)
       rescue Slop::UnknownOption => e
-        # Hack to get around the lack of e.getUnknownOption()
-        # TODO Fix once avaiable
         if (e.flag == '--help')
           print_help_message
         else
